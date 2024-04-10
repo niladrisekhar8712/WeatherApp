@@ -1,4 +1,4 @@
-# Weather Application Server-Side Documentation
+# Weather Application Server-Side
 ## Overview
 The Weather Application is a server-side application built using Node.js and Express.js framework. It fetches weather data for a specified city from external weather APIs and displays it to the user. This documentation provides an overview of the server-side code structure and functionality.
 
@@ -50,7 +50,7 @@ Handles form submission to fetch weather data for a specified city.
 Updates weather-related variables based on the fetched data.
 Redirects to the GET '/' route to render the updated data.
 
-# Weather Application HTML Template Documentation
+# Weather Application HTML Template
 ## Overview
 The Weather Application HTML template is used to render weather data fetched from the server-side code onto a web page. This documentation provides an overview of the HTML structure and the dynamic data displayed using EJS (Embedded JavaScript) syntax.
 
@@ -85,3 +85,28 @@ Displays the daily weather forecast for the next five days. Uses a loop to itera
 
 Displays other information such as sunrise time, sunset time, and UV index.
 Uses images and text to represent each piece of special weather data.
+
+# Weather Application JavaScript Code
+## Overview
+The Weather Application JavaScript code dynamically updates the background image of the application based on the current weather condition and UV index. It also adjusts the background image for different screen sizes using media queries.
+
+## Functionality
+### Background Image Update:
+
+Retrieves the current weather condition from the DOM.
+Constructs the URL for the background image based on the current weather condition.
+If the weather condition is "Cloudy" or "Partly cloudy", a specific background image is used.
+Sets the background image of the body element using the constructed URL.
+### UV Index Update:
+
+Retrieves the UV index from the DOM.
+Updates the footer text based on the UV index level:
+"LOW" for UV index <= 2.
+"MODERATE" for UV index between 3 and 5.
+"HIGH" for UV index between 6 and 7.
+"VERY HIGH" for UV index greater than 7.
+### Media Query Handling:
+
+Defines a function myFunction(x) to handle media queries.
+Updates the background image URL based on the screen size.
+Registers an event listener for changes in screen size to dynamically update the background image.
