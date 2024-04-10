@@ -110,3 +110,25 @@ Updates the footer text based on the UV index level:
 Defines a function myFunction(x) to handle media queries.
 Updates the background image URL based on the screen size.
 Registers an event listener for changes in screen size to dynamically update the background image.
+
+# Error Page HTML
+## Overview
+The Error Page HTML document provides a visually appealing and informative interface for users who encounter a 404 error while navigating a website. It includes a message explaining the error and an option to go back to the previous page.
+
+## Structure
+### Error Message:
+
+Displays a prominent heading indicating the error.
+Provides a paragraph explaining the error and suggesting a solution (e.g., checking the spelling of the location).
+### Error Animation:
+
+Utilizes an animated design with color-changing numbers to create a visually engaging error display.
+Consists of three spans representing the digits of the error code "404".
+### Navigation Link:
+
+Offers a link labeled "Go Back" that redirects users to the previous page.
+Positioned below the error message for easy access.
+### Styling
+Applies custom styles to enhance the visual appeal of the error page, including font selection, color scheme, and animation effects.
+Utilizes Google Fonts for the "Montserrat" and "Catamaran" typefaces.
+Implements CSS animations to animate the color of the error numbers.
