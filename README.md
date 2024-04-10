@@ -49,3 +49,40 @@ uv: UV index.
 Handles form submission to fetch weather data for a specified city.
 Updates weather-related variables based on the fetched data.
 Redirects to the GET '/' route to render the updated data.
+
+# Weather Application HTML Template Documentation
+## Overview
+The Weather Application HTML template is used to render weather data fetched from the server-side code onto a web page. This documentation provides an overview of the HTML structure and the dynamic data displayed using EJS (Embedded JavaScript) syntax.
+
+## Structure
+The HTML template consists of the following sections:
+
+## Head Section:
+
+Contains metadata and links to external CSS stylesheets and fonts.
+Sets the title of the page to display the city name followed by "Weather".
+## Body Section:
+
+### Divided into two main sections: left and right.
+The left section contains a form to input the city name and display current weather information.
+The right section displays hourly and daily weather forecasts, as well as additional weather data.
+### Form Input:
+
+Allows users to input a city name and submit it to fetch weather data.
+The form submits data to the server-side code using the POST method.
+### Weather Display:
+
+Displays current weather information such as temperature, weather condition, feels like temperature, humidity, visibility, wind speed, pressure, and cloud cover.
+Includes an icon representing the current weather condition.
+### Hourly Forecast:
+
+Displays the hourly weather forecast for the next few hours.
+Uses a loop to iterate through the hourly forecast data obtained from the server-side code and display relevant information.
+### Daily Forecast:
+
+### Displays the daily weather forecast for the next five days.
+Uses a loop to iterate through the daily forecast data obtained from the server-side code and display relevant information.
+### Other Data:
+
+Displays other information such as sunrise time, sunset time, and UV index.
+Uses images and text to represent each piece of special weather data.
