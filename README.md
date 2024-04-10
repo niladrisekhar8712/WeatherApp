@@ -23,6 +23,7 @@ Server Listening: Start the Express server and listen on a specified port.
 
 ## Usage
 You can access the website directlu bt clicking this link: https://weatherapp-uo26.onrender.com/
+
 Or start the server by running the following command:
 ```
 node app.js
