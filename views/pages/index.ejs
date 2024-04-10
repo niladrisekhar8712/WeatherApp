@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= lat %> Weather</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="main-body">
+        <div class="left-right">
+            <div class="left">
+                <div class="form-input">
+                    <form action="/" method="post">
+                        <img src="css\icons\location-placeholder-svgrepo-com.svg" alt="" class="loc-svg">
+                        <input type="text" name="cityName" placeholder="Enter City">
+                        <button type="submit" class="button-86">Go</button>
+                    </form>
+                </div>
+                <div class="weather">
+                    <div class="weather-left">
+                        <div class="location">
+                            <%= lat %>, <%= lon %>
+                        </div>
+                        <div class="temp">
+                            <%= parseInt(temperature) %>°C
+                        </div>
+                        <h3>
+                            <% if (forecastList && Array.isArray(forecastList)) { %>
+                                <%= parseInt(forecastList[0].day.mintemp_c) %> ~ <%= parseInt(forecastList[0].day.maxtemp_c) %>°C
+                                        <% } %>
+                        </h3>
+                        <h3>
+                           <p class="condition"><%= weather %></p> 
+                        </h3>
+                    </div>
+                    <div class="weather-right">
+                        <% if (forecastList && Array.isArray(forecastList)) { %>
+                            <% const tmp=forecastList[0]; %>
+                                <img src="https://<%= currentIcon %>" alt="" class="weather-icon">
+                                <% } else { %>
+                                    <p>No icon</p>
+                                    <% } %>
+                    </div>
+                </div>
+                <div class="other-data">
+                    <div class="grid-item">
+                        <!-- <div><img src="css\icons\thermometer.svg" alt="" class="loc-svg"></div> -->
+                        <div class="extra-heading">FEELS LIKE</div>
+                        <div class="extra">
+                            <%= Math.floor(feelsLike) %>°C
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="extra-heading">HUMIDITY</div>
+                        <div class="extra" style="font-size: 15px;">
+                            <div class="pie" style="--p:<%= humidity %>;--c:darkblue;--b:2px">
+                                <%= humidity %>%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="extra-heading">VISIBILITY</div>
+                        <div class="extra">
+                            <%= visibility %> km
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="extra-heading">WIND</div>
+                        <div class="extra" style="font-size: 25px;">
+                            <%=windSpeed %>km/h
+                        </div>
+                        <div style="font-size: 15px; text-align: center;">
+                            <%=windDirection %>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="extra-heading">PRESSURE</div>
+                        <div class="extra" style="font-size: 25px;">
+                            <%=pressure %>mb
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="extra-heading">CLOUD</div>
+
+                        <div class="extra" style="font-size: 15px;">
+                            <div class="pie" style="--p:<%= cloud %>;--c:darkblue;--b:2px">
+                                <%= cloud %>%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-content">
+                    <% if (forecastList && Array.isArray(forecastList)) { %>
+                        <% const tmp=forecastList[0]; %>
+                        <% const hourArray = tmp.hour; %>
+                        <% let count = 1; %>
+                        <% let hour = parseInt(localtime.split(' ')[1].split(':')[0]) %>
+                        <% let requiredIndex = 0; %>
+                        <% for (let i = 0; i < hourArray.length && count <= 5; i += 1) { %>
+                            <% if(hourArray[i].time.toString().split(' ')[1].split(':')[0] > hour && hourArray[i].time.toString().split(' ')[1].split(':')[0] <= hour+15){ %>
+                                <% let str = "hour"+count; %>
+                                <div class="hour" id="<%= str %>">
+                                    <img src="https://<%= hourArray[i].condition.icon %>" alt="">
+                                    <h3 style="margin: 0px;"><%= Math.floor(hourArray[i].temp_c) +"°C"%></h3>
+                                    <p><%= hourArray[i].time.toString().split(' ')[1] %></p>
+                                </div>
+                                <% count++; %>
+                            <% } %>
+                        <% } %>
+                        <% if(count <= 5){ %>
+                            <% for (let i = 0;count <= 5; i += 1) { %>
+                                <% count++; %>
+                                <div class="hour">
+                                    <img src="https://<%= forecastList[1].hour[i].condition.icon %>" alt="">
+                                    <h3 style="margin: 0px;"><%= Math.floor(hourArray[i].temp_c) +"°C"%></h3>
+                                    <p><%= hourArray[i].time.toString().split(' ')[1] %></p>
+                                </div>
+                            <% } %>
+                        <% } %>
+                    <% } else { %>
+                        <p>No forecast data available.</p>
+                    <% } %>
+                </div>
+                <div class="right-content">
+                    <% if (dailyForecast && dailyForecast.timelines) { %>
+                        <% for (let i = 1;i <= 5; i++) { %>
+                            <div class="day">
+                                <div style="display: flex; justify-content: space-evenly;">
+                                    <img src="css/icons/rain-16.png" alt="">
+                                    <p style="margin: 0px;"><%= dailyForecast.timelines.daily[i].values.precipitationProbabilityAvg+"%" %></p>
+                                </div>
+                                <p style="font-weight: bold;"><%= Math.ceil(dailyForecast.timelines.daily[i].values.temperatureAvg)+"°C"%></h3>
+                                <p>
+                                    <%= dailyForecast.timelines.daily[i].time.split('T')[0].split('-')[2]+"/"+dailyForecast.timelines.daily[i].time.split('T')[0].split('-')[1]%>
+                                </p>
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
+                <div class="right-content" id="special">
+                    <div class="right-content-1">
+                        <!-- <div id="footer">SUNRISE</div> -->
+                        <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                            <img src="css/icons/sunrise.png" alt="No pic found" srcset="" class="sunrise">
+                            
+                        </div>
+                        <div class="extra" style="font-size: 25px;">
+                            <%= riseTime %>
+                        </div>
+                    </div>
+                    <div class="right-content-2">
+                        <span style="border-radius: 50%;">
+                            <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                                <img src="css/icons/sunset.png" alt="No pic found" srcset="" class="sunset">
+                                <!-- <div id="footer">SUNSET</div> -->
+                            </div>
+                        </span>
+                        <div class="extra" style="font-size: 25px;">
+                            <%= setTime %>
+                        </div>
+                    </div>
+                    <div class="right-content-3">
+                        <span style="border-radius: 50%;">
+                            <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                                <img src="css/icons/uv.png" alt="No pic found" srcset="" style="height: 64px;">
+                                
+                            </div>
+                        </span>
+                        <div id="footer"></div>
+                        <div class="extra" style="font-size: 25px;" id="uv">
+                            <%= parseInt(uv) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
