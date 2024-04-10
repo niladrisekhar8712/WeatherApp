@@ -136,7 +136,7 @@
                     <% } %>
                 </div>
                 <div class="right-content">
-                    <% if (dailyForecast && dailyForecast.timelines) { %>
+                    <% if (dailyForecast && dailyForecast.timelines && dailyForecast.timelines.daily) { %>
                         <% for (let i = 1;i <= 5; i++) { %>
                             <div class="day">
                                 <div style="display: flex; justify-content: space-evenly;">
