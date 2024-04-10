@@ -4,9 +4,9 @@ The Weather Application is a server-side application built using Node.js and Exp
 
 ## Setup and Dependencies
 Ensure Node.js is installed on your system.
-Install the required dependencies using npm:
+Install the required dependencies by entering following command:
 ```
-npm install express body-parser
+npm install
 ```
 ## Code Structure
 ### The server-side code consists of the following components:
