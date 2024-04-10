@@ -80,8 +80,7 @@ Displays the hourly weather forecast for the next few hours.
 Uses a loop to iterate through the hourly forecast data obtained from the server-side code and display relevant information.
 ### Daily Forecast:
 
-#### Displays the daily weather forecast for the next five days.
-Uses a loop to iterate through the daily forecast data obtained from the server-side code and display relevant information.
+Displays the daily weather forecast for the next five days. Uses a loop to iterate through the daily forecast data obtained from the server-side code and display relevant information.
 ### Other Data:
 
 Displays other information such as sunrise time, sunset time, and UV index.
