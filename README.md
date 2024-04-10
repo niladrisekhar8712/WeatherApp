@@ -32,6 +32,12 @@ Access the application in a web browser at http://localhost:3000.
 
 Enter a city name in the provided form and submit it to fetch weather data for that city.
 
+## Usage of External APIs
+### weatherapi.com:
+Utilized to retrieve current weather information such as temperature, humidity, wind speed, etc. and hourly weather forecast data.
+### tomorrow.io:
+Employed to acquire daily weather forecast data.
+
 ## Route Details
 ### GET '/'
 Renders the index page with initial weather data.
