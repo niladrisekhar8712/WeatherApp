@@ -32,6 +32,9 @@ Access the application in a web browser at http://localhost:3000.
 
 Enter a city name in the provided form and submit it to fetch weather data for that city.
 
+##### Note
+when you first browse the weather there may be a  few 'NaN' and '--' in the UI but they are just default values and they will be gone when you input a loaction.
+..
 ## Usage of External APIs
 ### weatherapi.com:
 Utilized to retrieve current weather information such as temperature, humidity, wind speed, etc. and hourly weather forecast data.
