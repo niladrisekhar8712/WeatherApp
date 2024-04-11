@@ -15,6 +15,7 @@ let sunrise = '--', sunset = '--', temperature = '--', humidity = '--', weather 
 let forecastList, dailyForecast, dailyData, uv = '--';
 app.get('/', (req, res) => {
   res.render('pages/index', {
+    isDay: isDay,
     cityName: cityName,
     lat: lat,
     lon: lon,
@@ -76,7 +77,7 @@ app.post('/', (req, res) => {
       }
       temperature = weatherData.current.temp_c;
       humidity = weatherData.current.humidity;
-      weather = weatherData.current.condition.text;
+      isDay = weatherData.current.is_day;
       currentIcon = weatherData.current.condition.icon;
       feelsLike = weatherData.current.feelslike_c;
       seaLevelPressure = weatherData.current.pressure_mb;
