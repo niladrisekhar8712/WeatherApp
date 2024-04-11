@@ -12,7 +12,7 @@ let city = [];
 let lat = '--', lon = '--';
 let currentIcon = '--';
 let sunrise = '--', sunset = '--', temperature = '--', humidity = '--', weather = '--', feelsLike = '--', seaLevelPressure = '--', visibility = '--', windSpeed = '--', windDirection = '--', cloud = '--', timezone = '--', localtime = '--';
-let forecastList, dailyForecast, dailyData, uv = '--';
+let forecastList, dailyForecast, dailyData, uv = '--', isDay = 1;
 app.get('/', (req, res) => {
   res.render('pages/index', {
     isDay: isDay,
