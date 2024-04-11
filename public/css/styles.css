@@ -1,3 +1,6 @@
+.not-visible{
+    visibility: hidden;
+}
 body {
     padding-top: 4%;
     display: flex;
