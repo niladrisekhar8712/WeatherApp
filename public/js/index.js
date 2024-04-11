@@ -1,11 +1,14 @@
 let currentCondition = document.getElementsByClassName("condition")[0].textContent;
 let backgroundImageURL = "css/images/Rainy-desktop.jpg";
 backgroundImageURL = "css/images/" + currentCondition + "-desktop.jpg";
-if (currentCondition == "Cloudy" || currentCondition == "Partly cloudy") {
+if (currentCondition == "Cloudy" || currentCondition == "Partly Cloudy") {
     backgroundImageURL = "css/images/Cloudy-desktop.jpg";
 }
 console.log(backgroundImageURL);
 document.body.style.backgroundImage = "url(" + backgroundImageURL + ")";
+if(document.getElementsByClassName("not-visible")[0].textContent == 0 && document.getElementsByClassName("condition")[0].textContent == "Sunny"){
+    document.body.style.backgroundImage = "url(css/images/Clear-desktop.jpg)";
+}
 let uv = parseInt(document.getElementById("uv").textContent);
 if (uv <= 2) {
     document.getElementById("footer").innerHTML = "LOW";
@@ -28,6 +31,9 @@ function myFunction(x) {
             backgroundImageURL = "css/images/Cloudy-mobile.jpg";
         }
         document.body.style.backgroundImage = "url(" + backgroundImageURL + ")";
+        if(document.getElementsByClassName("not-visible")[0].textContent == 0 && document.getElementsByClassName("condition")[0].textContent == "Sunny"){
+            document.body.style.backgroundImage = "url(css/images/Clear-mobile.jpg)";
+        }
     }
     else {
         backgroundImageURL = "css/images/" + currentCondition + "-desktop.jpg";
@@ -35,6 +41,9 @@ function myFunction(x) {
             backgroundImageURL = "css/images/Cloudy-desktop.jpg";
         }
         document.body.style.backgroundImage = "url(" + backgroundImageURL + ")";
+        if(document.getElementsByClassName("not-visible")[0].textContent == 0 && document.getElementsByClassName("condition")[0].textContent == "Sunny"){
+            document.body.style.backgroundImage = "url(css/images/Clear-desktop.jpg)";
+        }
     }
 }
 var x = window.matchMedia("(max-width: 927px)")
