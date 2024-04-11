@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   cityName = req.body.cityName;
   city.push(cityName);
-  let url = 'https://api.weatherapi.com/v1/forecast.json?key=75efa4ecef444031b8b162156241403&q=' + cityName + '&days=8&aqi=yes&alerts=yes';
+  let url = 'https://api.weatherapi.com/v1/forecast.json?key=75efa4ecef444031b8b162156241403&q=' + cityName + '&days=2';
   https.get(url, (response) => {
     let data = '';
     response.on('data', (chunk) => {
