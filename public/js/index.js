@@ -8,6 +8,7 @@ console.log(backgroundImageURL);
 document.body.style.backgroundImage = "url(" + backgroundImageURL + ")";
 if(document.getElementsByClassName("not-visible")[0].textContent == 0 && document.getElementsByClassName("condition")[0].textContent == "Sunny"){
     document.body.style.backgroundImage = "url(css/images/Clear-desktop.jpg)";
+    document.getElementsByClassName("condition")[0].textContent == "Clear"
 }
 let uv = parseInt(document.getElementById("uv").textContent);
 if (uv <= 2) {
